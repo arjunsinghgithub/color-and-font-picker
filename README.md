@@ -17,9 +17,6 @@ A modern, interactive web tool for customizing text with real-time color and fon
 - **Smooth Animations** and hover effects
 - **Accessibility Focused** with ARIA labels
 
-## 🚀 Demo
-
-Simply open `day8-improved.html` in your browser to start using the tool.
 
 ## 📋 Usage
 
@@ -91,6 +88,8 @@ Contributions are welcome! Feel free to:
 MIT License - feel free to use this project for personal or commercial purposes.
 
 ## 👤 Author
+**Arjun Singh**
+- GitHub: [@arjunsinghgithub](https://github.com/arjunsinghgithub)
 
 Created with ❤️ for creative designers and developers
 
