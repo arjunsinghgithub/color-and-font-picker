@@ -57,11 +57,30 @@
 	//text alignment
 	controls[0].onclick = function (event){
 				if (event.target.classList.contains("align-btn") && (!event.target.classList.contains("active")))	{
-							currentAlign.classList.remove("active");
-							event.target.classList.add("active");
-							currentAlign = event.target;
-							//changing alignment
-							textBox.align = event.target.dataset.align;
+						//changing alignment
+						textBox.style.display ="flex";
+						switch (event.target.dataset.align) {
+									case "left":{
+											textBox.style.alignItems = 'flex-start';  //   vertically reset
+											textBox.style.justifyContent = 'flex-start'; // horizontal reset
+											break;
+									}
+									case "center": {
+											textBox.style.alignItems = 'flex-start';      // vertical reset
+											textBox.style.justifyContent = 'center'; // horizontal center
+											break;
+									}
+									case "vcenter": {
+											textBox.style.alignItems='center';		//vertically center
+											textBox.style.justifyContent = 'center';  // horizontally center
+											break;
+									}
+									default : {	}
+						}
+						//css hover & styles
+						currentAlign.classList.remove("active");
+						event.target.classList.add("active");
+						currentAlign = event.target;
 				}
 	};
 	
@@ -84,8 +103,6 @@
 							
 				}
 	};
-	
-	
 	
 	// image download - event delegation
 	document.getElementById("img").addEventListener("click", (event)=> {
