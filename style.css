@@ -653,6 +653,26 @@ body::before {
     top: 0.5rem;
   }
 
+  .control-group {
+   display:flex;
+	justify-content:flex-start;
+    scroll-snap-align: start;
+	padding: 0px 10px;
+  }
+  .controls-bar {
+	flex-direction:column;
+	align-items:flex-start;
+	flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth iOS swipe */
+    scrollbar-width: none; /* Firefox */
+	 scroll-snap-type: x mandatory;
+  }
+
+  .controls-bar::-webkit-scrollbar {
+    display: none; /* Chrome / Safari */
+  }
+	
   .color-palette {
     grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
   }
