@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Interactive color and font picker tool for customizing text appearance">
+	<title>Color & Font Picker</title>
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;600&family=Pacifico&family=Lobster&family=Raleway:wght@400;600&family=Oswald:wght@400;600&family=Anton&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Rubik:wght@400;600&family=Quicksand:wght@400;600&family=Nunito:wght@400;600&family=Comfortaa:wght@400;600&family=Archivo+Black&display=swap" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="icon" href="https://png.pngtree.com/png-vector/20190930/ourmid/pngtree-color-picker-icon-flat-style-png-image_1758159.jpg"/>
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="style.css">
+	
+	<!-- JavaScript -->
+	<script src="script.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+	<main id="main">
+		<!-- Heading Section -->
+		<header id="heading">
+			<h1>Color & Font Picker</h1>
+		</header>
+
+		<!-- Design Container -->
+		<section id="design-container">
+			<!-- Text Section -->
+			<article id="text-section">
+				<h1 id="content-box" contenteditable="true" role="textbox" aria-label="Editable text area"></h1>
+				<button type="button" aria-label="Download image of styled text" id="img">Download Image</button>
+			</article>
+			
+			<!-- Alignment Section -->
+			<article>			
+				<!-- Controls Bar -->
+				<div class="controls-bar">
+					<!-- Text Alignment -->
+					<div class="control-group">
+						<span class="control-label">Align:</span>
+						<button id="left" class="align-btn active" data-align="left" type="button" aria-label="Align left">Left</button>
+						<button class="align-btn " data-align="center" type="button" aria-label="Align center">Center</button>
+					</div>
+					
+					<!-- Aspect Ratio -->
+					<div class="control-group">
+						<span class="control-label">Ratio:</span>
+						<button id="def" class="ratio-btn active" data-ratio="default" type="button" aria-label="Default ratio">Default</button>
+						<button  class="ratio-btn" data-ratio="square" type="button" aria-label="Square 1:1">1:1</button>
+						<button  class="ratio-btn" data-ratio="standard" type="button" aria-label="Standard 4:3">4:3</button>
+					</div>
+				</div>
+			</article>
+			
+			<!-- Color Section -->
+			<div id="color-section">
+				<!-- Text Color Palette -->
+				<article class="color-palette" id="palette" role="group" aria-label="Text color options">
+					<!-- Row 1 -->
+					<button class="color-preset" data-color="#002455" style="background:#002455" aria-label="Navy blue" type="button"></button>
+					<button class="color-preset" data-color="#FF4000" style="background:#FF4000" aria-label="Orange red" type="button"></button>
+					<button class="color-preset" data-color="#FAAA8D" style="background:#FAAA8D" aria-label="Peach" type="button"></button>
+					<button class="color-preset" data-color="#FEEFDD" style="background:#FEEFDD" aria-label="Cream" type="button"></button>
+					<button class="color-preset" data-color="#50B2C0" style="background:#50B2C0" aria-label="Teal" type="button"></button>
+					<button class="color-preset" data-color="#C200FB" style="background:#C200FB" aria-label="Purple" type="button"></button>
+					<button class="color-preset" data-color="#EC0868" style="background:#EC0868" aria-label="Pink red" type="button"></button>
+					<button class="color-preset" data-color="#FC2F00" style="background:#FC2F00" aria-label="Bright red" type="button"></button>
+
+					<!-- Row 2 -->
+					<button class="color-preset" data-color="#EC7D10" style="background:#EC7D10" aria-label="Dark orange" type="button"></button>
+					<button class="color-preset" data-color="#FFBC0A" style="background:#FFBC0A" aria-label="Golden yellow" type="button"></button>
+					<button class="color-preset" data-color="#502419" style="background:#502419" aria-label="Dark brown" type="button"></button>
+					<button class="color-preset" data-color="#7EA172" style="background:#7EA172" aria-label="Sage green" type="button"></button>
+					<button class="color-preset" data-color="#C7CB85" style="background:#C7CB85" aria-label="Light olive" type="button"></button>
+					<button class="color-preset" data-color="#E7A977" style="background:#E7A977" aria-label="Tan" type="button"></button>
+					<button class="color-preset" data-color="#EBBE9B" style="background:#EBBE9B" aria-label="Light tan" type="button"></button>
+					<button class="color-preset" data-color="#30C5FF" style="background:#30C5FF" aria-label="Sky blue" type="button"></button>
+
+					<!-- Row 3 -->
+					<button class="color-preset" data-color="#E4FF30" style="background:#E4FF30" aria-label="Neon yellow" type="button"></button>
+					<button class="color-preset" data-color="#5C946E" style="background:#5C946E" aria-label="Forest green" type="button"></button>
+					<button class="color-preset" data-color="#80C2AF" style="background:#80C2AF" aria-label="Mint green" type="button"></button>
+					<button class="color-preset" data-color="#A0DDE6" style="background:#A0DDE6" aria-label="Light blue" type="button"></button>
+					<button class="color-preset" data-color="#246EB9" style="background:#246EB9" aria-label="Royal blue" type="button"></button>
+					<button class="color-preset" data-color="#4CB944" style="background:#4CB944" aria-label="Lime green" type="button"></button>
+					<button class="color-preset" data-color="#FFC0CB" style="background:#FFC0CB" aria-label="Pink" type="button"></button>
+					<button class="color-preset" data-color="#F5EE9E" style="background:#F5EE9E" aria-label="Pale yellow" type="button"></button>
+
+					<!-- Row 4 -->
+					<button class="color-preset" data-color="#F06543" style="background:#F06543" aria-label="Coral" type="button"></button>
+					<button class="color-preset" data-color="#463730" style="background:#463730" aria-label="Dark taupe" type="button"></button>
+					<button class="color-preset" data-color="#1F5673" style="background:#1F5673" aria-label="Deep blue" type="button"></button>
+					<button class="color-preset" data-color="#759FBC" style="background:#759FBC" aria-label="Slate blue" type="button"></button>
+					<button class="color-preset" data-color="#90C3C8" style="background:#90C3C8" aria-label="Powder blue" type="button"></button>
+					<button class="color-preset" data-color="#B9B8D3" style="background:#B9B8D3" aria-label="Lavender" type="button"></button>
+					<button class="color-preset" data-color="#46237A" style="background:#46237A" aria-label="Deep purple" type="button"></button>
+					<button class="color-preset" data-color="#766C7F" style="background:#766C7F" aria-label="Gray purple" type="button"></button>
+					
+					<!-- Custom Color Picker -->
+					<div class="custom-picker-wrapper">
+						<span class="picker-label">Custom</span>
+						<input id="color-picker" type="color" aria-label="Custom text color picker" title="Pick custom color">
+					</div>
+				</article>
+
+				<!-- Background Color Palette -->
+				<article class="color-palette" id="palette-bg" role="group" aria-label="Background color options">
+					<!-- Row 1 -->
+					<button class="color-preset" data-color="#002455" style="background:#002455" aria-label="Navy blue background" type="button"></button>
+					<button class="color-preset" data-color="#FF4000" style="background:#FF4000" aria-label="Orange red background" type="button"></button>
+					<button class="color-preset" data-color="#FAAA8D" style="background:#FAAA8D" aria-label="Peach background" type="button"></button>
+					<button class="color-preset" data-color="#FEEFDD" style="background:#FEEFDD" aria-label="Cream background" type="button"></button>
+					<button class="color-preset" data-color="#50B2C0" style="background:#50B2C0" aria-label="Teal background" type="button"></button>
+					<button class="color-preset" data-color="#C200FB" style="background:#C200FB" aria-label="Purple background" type="button"></button>
+					<button class="color-preset" data-color="#EC0868" style="background:#EC0868" aria-label="Pink red background" type="button"></button>
+					<button class="color-preset" data-color="#FC2F00" style="background:#FC2F00" aria-label="Bright red background" type="button"></button>
+
+					<!-- Row 2 -->
+					<button class="color-preset" data-color="#EC7D10" style="background:#EC7D10" aria-label="Dark orange background" type="button"></button>
+					<button class="color-preset" data-color="#FFBC0A" style="background:#FFBC0A" aria-label="Golden yellow background" type="button"></button>
+					<button class="color-preset" data-color="#502419" style="background:#502419" aria-label="Dark brown background" type="button"></button>
+					<button class="color-preset" data-color="#7EA172" style="background:#7EA172" aria-label="Sage green background" type="button"></button>
+					<button class="color-preset" data-color="#C7CB85" style="background:#C7CB85" aria-label="Light olive background" type="button"></button>
+					<button class="color-preset" data-color="#E7A977" style="background:#E7A977" aria-label="Tan background" type="button"></button>
+					<button class="color-preset" data-color="#EBBE9B" style="background:#EBBE9B" aria-label="Light tan background" type="button"></button>
+					<button class="color-preset" data-color="#30C5FF" style="background:#30C5FF" aria-label="Sky blue background" type="button"></button>
+
+					<!-- Row 3 -->
+					<button class="color-preset" data-color="#E4FF30" style="background:#E4FF30" aria-label="Neon yellow background" type="button"></button>
+					<button class="color-preset" data-color="#5C946E" style="background:#5C946E" aria-label="Forest green background" type="button"></button>
+					<button class="color-preset" data-color="#80C2AF" style="background:#80C2AF" aria-label="Mint green background" type="button"></button>
+					<button class="color-preset" data-color="#A0DDE6" style="background:#A0DDE6" aria-label="Light blue background" type="button"></button>
+					<button class="color-preset" data-color="#246EB9" style="background:#246EB9" aria-label="Royal blue background" type="button"></button>
+					<button class="color-preset" data-color="#4CB944" style="background:#4CB944" aria-label="Lime green background" type="button"></button>
+					<button class="color-preset" data-color="#FFC0CB" style="background:#FFC0CB" aria-label="Pink background" type="button"></button>
+					<button class="color-preset" data-color="#F5EE9E" style="background:#F5EE9E" aria-label="Pale yellow background" type="button"></button>
+
+					<!-- Row 4 -->
+					<button class="color-preset" data-color="#F06543" style="background:#F06543" aria-label="Coral background" type="button"></button>
+					<button class="color-preset" data-color="#463730" style="background:#463730" aria-label="Dark taupe background" type="button"></button>
+					<button class="color-preset" data-color="#1F5673" style="background:#1F5673" aria-label="Deep blue background" type="button"></button>
+					<button class="color-preset" data-color="#759FBC" style="background:#759FBC" aria-label="Slate blue background" type="button"></button>
+					<button class="color-preset" data-color="#90C3C8" style="background:#90C3C8" aria-label="Powder blue background" type="button"></button>
+					<button class="color-preset" data-color="#B9B8D3" style="background:#B9B8D3" aria-label="Lavender background" type="button"></button>
+					<button class="color-preset" data-color="#46237A" style="background:#46237A" aria-label="Deep purple background" type="button"></button>
+					<button class="color-preset" data-color="#766C7F" style="background:#766C7F" aria-label="Gray purple background" type="button"></button>
+					
+					<!-- Custom Color Picker -->
+					<div class="custom-picker-wrapper">
+						<span class="picker-label">Custom</span>
+						<input id="color-picker-bg" type="color" aria-label="Custom background color picker" title="Pick custom background">
+					</div>
+				</article>
+			</div>
+			
+			<!-- Emoji Picker Section -->
+		   <article id="emojis"class="emoji-picker" role="group" aria-label="Emoji options">
+				<button class="emoji-btn" data-emoji="😀" type="button" aria-label="Grinning face">😀</button>
+				<button class="emoji-btn" data-emoji="😂" type="button" aria-label="Face with tears of joy">😂</button>
+				<button class="emoji-btn" data-emoji="😍" type="button" aria-label="Heart eyes">😍</button>
+				<button class="emoji-btn" data-emoji="🥰" type="button" aria-label="Smiling face with hearts">🥰</button>
+				<button class="emoji-btn" data-emoji="😎" type="button" aria-label="Smiling face with sunglasses">😎</button>
+				<button class="emoji-btn" data-emoji="🤔" type="button" aria-label="Thinking face">🤔</button>
+				<button class="emoji-btn" data-emoji="😊" type="button" aria-label="Smiling face">😊</button>
+				<button class="emoji-btn" data-emoji="🎉" type="button" aria-label="Party popper">🎉</button>
+				<button class="emoji-btn" data-emoji="❤️" type="button" aria-label="Red heart">❤️</button>
+				<button class="emoji-btn" data-emoji="🔥" type="button" aria-label="Fire">🔥</button>
+				<button class="emoji-btn" data-emoji="✨" type="button" aria-label="Sparkles">✨</button>
+				<button class="emoji-btn" data-emoji="🌟" type="button" aria-label="Glowing star">🌟</button>
+				<button class="emoji-btn" data-emoji="💯" type="button" aria-label="Hundred points">💯</button>
+				<button class="emoji-btn" data-emoji="👍" type="button" aria-label="Thumbs up">👍</button>
+				<button class="emoji-btn" data-emoji="🙌" type="button" aria-label="Raising hands">🙌</button>
+				<button class="emoji-btn" data-emoji="💪" type="button" aria-label="Flexed biceps">💪</button>
+				<button class="emoji-btn" data-emoji="🎨" type="button" aria-label="Artist palette">🎨</button>
+				<button class="emoji-btn" data-emoji="🎵" type="button" aria-label="Musical note">🎵</button>
+				<button class="emoji-btn" data-emoji="⭐" type="button" aria-label="Star">⭐</button>
+				<button class="emoji-btn" data-emoji="💎" type="button" aria-label="Gem stone">💎</button>
+				<button class="emoji-btn" data-emoji="🌈" type="button" aria-label="Rainbow">🌈</button>
+				<button class="emoji-btn" data-emoji="🎯" type="button" aria-label="Direct hit">🎯</button>
+				<button class="emoji-btn" data-emoji="🚀" type="button" aria-label="Rocket">🚀</button>
+				<button class="emoji-btn" data-emoji="💡" type="button" aria-label="Light bulb">💡</button>
+		   </article>
+
+		  <!-- Font Styles Section -->
+		  <article class="font-style-box" id="fontBox" role="group" aria-label="Font style options">
+				<button class="font-preset" data-font="'Poppins', sans-serif" 
+					style="font-family: 'Poppins', sans-serif;" 
+					aria-label="Poppins font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Playfair Display', serif" 
+					style="font-family: 'Playfair Display', serif;" 
+					aria-label="Playfair Display font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Montserrat', sans-serif" 
+					style="font-family: 'Montserrat', sans-serif;" 
+					aria-label="Montserrat font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Pacifico', cursive" 
+					style="font-family: 'Pacifico', cursive;" 
+					aria-label="Pacifico font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Lobster', cursive" 
+					style="font-family: 'Lobster', cursive;" 
+					aria-label="Lobster font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Raleway', sans-serif" 
+					style="font-family: 'Raleway', sans-serif;" 
+					aria-label="Raleway font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Oswald', sans-serif" 
+					style="font-family: 'Oswald', sans-serif;" 
+					aria-label="Oswald font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Anton', sans-serif" 
+					style="font-family: 'Anton', sans-serif;" 
+					aria-label="Anton font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Dancing Script', cursive" 
+					style="font-family: 'Dancing Script', cursive;" 
+					aria-label="Dancing Script font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Great Vibes', cursive" 
+					style="font-family: 'Great Vibes', cursive;" 
+					aria-label="Great Vibes font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Rubik', sans-serif" 
+					style="font-family: 'Rubik', sans-serif;" 
+					aria-label="Rubik font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Quicksand', sans-serif" 
+					style="font-family: 'Quicksand', sans-serif;" 
+					aria-label="Quicksand font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Nunito', sans-serif" 
+					style="font-family: 'Nunito', sans-serif;" 
+					aria-label="Nunito font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Comfortaa', cursive" 
+					style="font-family: 'Comfortaa', cursive;" 
+					aria-label="Comfortaa font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Archivo Black', sans-serif" 
+					style="font-family: 'Archivo Black', sans-serif;" 
+					aria-label="Archivo Black font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Bebas Neue', cursive" 
+					style="font-family: 'Bebas Neue', cursive;" 
+					aria-label="Bebas Neue font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Merriweather', serif" 
+					style="font-family: 'Merriweather', serif;" 
+					aria-label="Merriweather font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Open Sans', sans-serif" 
+					style="font-family: 'Open Sans', sans-serif;" 
+					aria-label="Open Sans font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Lato', sans-serif" 
+					style="font-family: 'Lato', sans-serif;" 
+					aria-label="Lato font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Source Sans Pro', sans-serif" 
+					style="font-family: 'Source Sans Pro', sans-serif;" 
+					aria-label="Source Sans Pro font" 
+					type="button">Hello</button>
+
+				<button class="font-preset" data-font="'Caveat', cursive" 
+					style="font-family: 'Caveat', cursive;" 
+					aria-label="Caveat font" 
+					type="button">Hello</button>
+		  </article>
+		</section>
+	</main>
+</body>
+</html>
