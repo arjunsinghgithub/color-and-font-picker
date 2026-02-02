@@ -9,7 +9,10 @@ A modern, interactive web tool for customizing text with real-time color and fon
 ## ✨ Features
 
 - **32 Preset Colors** for text and background
-- **15 Google Fonts** with live preview
+- **21 Google Fonts** with live preview
+- **Cool Emojis** with text
+- **Text Alignment** for text data
+- **Aspect Ratios** for background container
 - **Custom Color Picker** for unlimited color options
 - **Sticky Text Preview** - stays visible while scrolling
 - **Download as Image** functionality
@@ -35,7 +38,7 @@ The tool includes carefully curated color presets organized in 4 rows:
 
 ## 🔤 Available Fonts
 
-Poppins • Playfair Display • Montserrat • Pacifico • Lobster • Raleway • Oswald • Anton • Dancing Script • Great Vibes • Rubik • Quicksand • Nunito • Comfortaa • Archivo Black
+Poppins • Playfair Display • Montserrat • Pacifico • Lobster • Raleway • Oswald • Anton • Dancing Script • Great Vibes • Rubik • Quicksand • Nunito • Comfortaa • Archivo Black • Bebas Neue • Merriweather • Open Sans • Lato • Source Sans Pro • Caveat 
 
 ## 🛠️ Technical Details
 
